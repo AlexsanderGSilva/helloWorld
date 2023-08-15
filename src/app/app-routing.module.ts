@@ -11,6 +11,27 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'ofertas',
+    loadChildren: () => import('./promocoes/promocoes.module').then( m => m.PromocoesPageModule)
+  },
+  {
+    path: 'picanha',
+    loadChildren: () => import('./picanha/picanha.module').then( m => m.PicanhaPageModule)
+  },
+  {
+    path: 'cerveja',
+    loadChildren: () => import('./cerveja/cerveja.module').then( m => m.CervejaPageModule)
+  },
+  {
+    path: 'carvao',
+    loadChildren: () => import('./carvao/carvao.module').then( m => m.CarvaoPageModule)
+  },
+  {
+    path: 'linguica',
+    loadChildren: () => import('./linguica/linguica.module').then( m => m.LinguicaPageModule)
+  },
+
 ];
 
 @NgModule({
