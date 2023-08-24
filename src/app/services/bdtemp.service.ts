@@ -34,7 +34,7 @@ export class BdtempService {
 
   addProdutoCarrinho(produto:any){
     // Verifica se ja existe um carrinho
-    if(!this.bd['carinho']){// Se Não (!)
+    if(!this.bd['carrinho']){// Se Não (!)
       this.bd['carrinho'] = []; // Cria um carrinho vazio
     }
     if(produto){ // Verifica se produto é um var válida
@@ -45,7 +45,7 @@ export class BdtempService {
   }
 
   removeProdutoCarrinho(posicao: number){
-    this.bd['carinho'].splice(posicao, 1);
+    this.bd['carrinho'].splice(posicao, 1);
   }
 
   limparCarrinho(){
