@@ -41,14 +41,30 @@ export class BdtempService {
       this.bd['carrinho'].push(produto); // Add no final do array
     }
 
-    console.log("Carrinho: ", this.bd['carrinho']);
+    this.totalCarrinho();
   }
 
   removeProdutoCarrinho(posicao: number){
     this.bd['carrinho'].splice(posicao, 1);
+    this.totalCarrinho();
   }
 
   limparCarrinho(){
     this.bd['carrinho'] = [];
+    this.totalCarrinho();
+  }
+
+  totalCarrinho(){
+    let total = 0;
+    // Verifica se o carrinho não está vazio
+    if(this.bd['carrinho'].length > 0){
+      // Percorre a lista de produtos para a soma
+      for(let prod of this.bd['carrinho']){
+        total = total + prod.valor;
+      }
+    }
+
+    this.salvar('qtdeItensCarrinho',this.bd['carrinho'].length);
+    this.salvar('totalCarrinho', total);
   }
 }

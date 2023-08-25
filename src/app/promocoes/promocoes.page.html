@@ -1,8 +1,14 @@
-<ion-header [translucent]="true" mode="ios">
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>promoções</ion-title>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>promoções</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="cart-outline"></ion-icon>
+        <ion-badge color="light">{{qtdeItensCarrinho}}</ion-badge>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -10,7 +16,7 @@
 <ion-content [fullscreen]="true">
   <ion-item *ngFor="let produto of listaProdutos">
     <ion-thumbnail slot="start">
-      <img alt="" src="https://s.cornershopapp.com/product-images/2440554.png?versionId=xPVlPNkyqflegYVOEAr6Fmwy8DKfpequ" />
+      <img [src]="produto.foto"/>
     </ion-thumbnail>
     <ion-label>
       <H2>{{produto.nome | uppercase }}</H2>

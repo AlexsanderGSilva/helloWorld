@@ -30,7 +30,11 @@ const routes: Routes = [
   {
     path: 'linguica',
     loadChildren: () => import('./linguica/linguica.module').then( m => m.LinguicaPageModule)
+  },  {
+    path: 'carrinho',
+    loadChildren: () => import('./carrinho/carrinho.module').then( m => m.CarrinhoPageModule)
   },
+
 
 ];
 
