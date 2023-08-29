@@ -8,6 +8,8 @@ import { BdtempService } from '../services/bdtemp.service';
 })
 export class CarrinhoPage implements OnInit {
 
+  totalCarrinho = 0;
+
   listaItens =[];
 
   constructor(public bdtemp: BdtempService) { }
@@ -16,11 +18,16 @@ export class CarrinhoPage implements OnInit {
   }
 
   buscarItensCarrinho(){
-    this.listaItens = this.bdtemp.buscar('Carrinho');
+    this.listaItens = this.bdtemp.buscar('carrinho');
   }
 
   ionViewWillEnter(){
     this.buscarItensCarrinho();
+    this.bucarTotalCarrinho();
   }
-  
+
+  bucarTotalCarrinho(){
+    this.totalCarrinho = this.bdtemp.buscar('totalCarrinho');
+  }
+
 }

@@ -8,9 +8,26 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">carrinho</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-item *ngFor="let produto of listaItens">
+    <ion-thumbnail slot="start">
+      <img [src]="produto['foto']"/>
+    </ion-thumbnail>
+    <ion-label>
+      <H2>{{produto['nome'] | uppercase }}</H2>
+      <p>{{produto['descricao']}}</p>
+    </ion-label>
+    <ion-badge color="tertiary" slot="end">R$: {{produto['valor'] | number: '1.2-2'}}</ion-badge>
+  </ion-item>
 </ion-content>
+
+<ion-footer>
+  <ion-item>
+    <ion-buttons>
+      <ion-button></ion-button>
+    </ion-buttons>
+  </ion-item>
+  <ion-item>
+    <ion-label>Total a pagar</ion-label>
+    <ion-badge color="tertiary" slot="end">R$: {{totalCarrinho | number: '1.2-2'}}</ion-badge>
+  </ion-item>
+</ion-footer>
