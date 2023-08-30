@@ -23,10 +23,10 @@ export class CarrinhoPage implements OnInit {
 
   ionViewWillEnter(){
     this.buscarItensCarrinho();
-    this.bucarTotalCarrinho();
+    this.buscarTotalCarrinho();
   }
 
-  bucarTotalCarrinho(){
+  buscarTotalCarrinho(){
     this.totalCarrinho = this.bdtemp.buscar('totalCarrinho');
   }
 
